@@ -1,0 +1,35 @@
+.page-container {
+    background-color: #498cec;
+    min-height: 100vh;
+
+    &__inner {
+        padding: 80px 75px 115px 100px;
+        box-sizing: border-box;
+        margin-left: auto;
+        margin-right: auto;
+
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+            padding: 25px 35px 40px 20px;	
+        }
+
+        @media screen and (min-width: 1px) and (max-width: 479px) {
+            padding: 25px 35px 40px 20px;
+        }
+    }
+
+    &__header {
+        margin-bottom: 160px;
+
+        @media screen and (min-width: 1px) and (max-width: 479px) {
+            margin-bottom: 120px;
+        }
+    }
+
+    &__main {
+        margin-bottom: 300px;
+
+        @media screen and (min-width: 1px) and (max-width: 479px) {
+            margin-bottom: 140px;
+        }
+    }
+}

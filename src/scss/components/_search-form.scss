@@ -1,0 +1,75 @@
+.search-form {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 580px;
+
+    @media screen and (min-width: 768px) and (max-width: 979px) {
+        width: 450px;
+    }
+
+    @media screen and (min-width: 480px) and (max-width: 767px) {
+        width: 300px;
+    }
+
+    @media screen and (min-width: 1px) and (max-width: 479px) {
+        width: 200px;
+    }
+
+    @media screen and (min-width: 1px) and (max-width: 375px) {
+        width: 160px;
+    }
+
+    &__input {
+        width: 100%;
+        display: block;
+        line-height: 1;
+        padding: 30px;
+        padding-right: 120px;
+        box-sizing: border-box;
+        font-size: 30px;
+        color: #000000;
+        border: none;
+
+        @media screen and (min-width: 768px) and (max-width: 979px) {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        @media screen and (min-width: 480px) and (max-width: 767px) {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        @media screen and (min-width: 1px) and (max-width: 479px) {
+            font-size: 18px;
+            padding: 15px;
+            padding-right: 55px;
+        }
+    }
+
+    &__button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border: none;
+        background-color: transparent;
+        padding: 0 35px;
+        text-transform: uppercase;
+        font-size: 30px;
+        color: #009bff;
+        transition: 0.2s ease;
+
+        @media screen and (min-width: 1px) and (max-width: 479px) {
+            font-size: 18px;
+            padding: 0 20px;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: rgba(249, 249, 249, 0.9);
+        }
+    }
+}

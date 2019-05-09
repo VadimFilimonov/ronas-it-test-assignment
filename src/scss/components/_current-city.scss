@@ -1,0 +1,42 @@
+.current-city {
+    &__title {
+        font-size: 32px;
+        line-height: 1;
+        margin-bottom: 10px;
+        max-width: 65%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__parameter {
+        display: inline-block;
+        color: rgba(#ffffff, 0.4);
+        text-decoration: none;
+        margin-right: 50px;
+        font-size: 15px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--my-location {
+            padding-left: 25px;
+            box-sizing: border-box;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                mask-image: url('/images/icons/telegram.svg');
+                mask-size: contain;
+                mask-position: center;
+                width: 14px;
+                height: 16px;
+                display: block;
+                background-color: rgba(255, 255, 255, 0.4);
+            }
+        }
+    }
+}
