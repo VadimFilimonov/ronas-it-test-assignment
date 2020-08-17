@@ -1,48 +1,48 @@
 div(class="page-container")
-    div(class="page-container__inner")
-        header(class="page-container__header header")
+	div(class="page-container__inner")
+		header(class="page-container__header header")
 
-            div(class="current-city header__item")
-                div(class="current-city__title") Омск
-                div(class="current-city__parameters")
-                    a(class="current-city__parameter current-city__parameter--change-city", href="/") Сменить город
-                    a(class="current-city__parameter current-city__parameter--my-location", href="/") Мое местоположение
+			div(class="current-city header__item")
+				div(class="current-city__title") Омск
+				div(class="current-city__parameters")
+					a(class="current-city__parameter current-city__parameter--change-city" href="/") Сменить город
+					a(class="current-city__parameter current-city__parameter--my-location" href="/") Мое местоположение
 
-            form(class="search-form visually-hidden header__item")
-                input(class="search-form__input" type="text" placeholder="Ваш город", required)
-                button(class="search-form__button") OK
+			form(class="search-form visually-hidden header__item")
+				input(class="search-form__input" type="text" placeholder="Ваш город", required)
+				button(class="search-form__button") OK
 
-            div(class="unit-switcher header__item header__unit-switcher")
-                form(class="unit-switcher__inner")
-                    input(class="unit-switcher__radio visually-hidden",
-                     type="radio", name="unit-switcher", id="unit-switcher-celsius", checked) 
-                    label(class="unit-switcher__item unit-switcher__item--celsius", for="unit-switcher-celsius") C
-                    input(class="unit-switcher__radio visually-hidden", 
-                    type="radio", name="unit-switcher", id="unit-switcher-fahrenheit") 
-                    label(class="unit-switcher__item unit-switcher__item--fahrenheit", for="unit-switcher-fahrenheit") F
+			div(class="unit-switcher header__item header__unit-switcher")
+				form(class="unit-switcher__inner")
+					input(class="unit-switcher__radio visually-hidden",
+						type="radio", name="unit-switcher", id="unit-switcher-celsius", checked)
+					label(class="unit-switcher__item unit-switcher__item--celsius" for="unit-switcher-celsius") C
+					input(class="unit-switcher__radio visually-hidden",
+					type="radio", name="unit-switcher", id="unit-switcher-fahrenheit")
+					label(class="unit-switcher__item unit-switcher__item--fahrenheit" for="unit-switcher-fahrenheit") F
 
 
-        main(class="page-container__main")
-            section(class="main-info")
-                div(class="main-info__content")
-                    div(class="main-info__image-wrapper")
-                        img(class="main-info__image", src="./images/image-default.png")
-                    div(class="main-info__value") 
-                        span 19
-                        sup º
-                div(class="main-info__description") Преимущественно солнечно
+		main(class="page-container__main")
+			section(class="main-info")
+				div(class="main-info__content")
+					div(class="main-info__image-wrapper")
+						img(class="main-info__image" src="./images/image-default.png")
+					div(class="main-info__value")
+						span 19
+						sup º
+				div(class="main-info__description") Преимущественно солнечно
 
-        footer(class="page-container__footer")
-            section(class="extra-info")
-                div(class="extra-info__item factoid")
-                    label(class="factoid__label") Ветер
-                    div(class="factoid__value"): <span>5</span> м/c, западный
-                div(class="extra-info__item factoid")
-                    label(class="factoid__label") Давление
-                    div(class="factoid__value"): <span>752</span> мм рт. ст.
-                div(class="extra-info__item factoid")
-                    label(class="factoid__label") Влажность
-                    div(class="factoid__value"): <span>60%</span>
-                div(class="extra-info__item factoid")
-                    label(class="factoid__label") Вероятность дождя
-                    div(class="factoid__value"): <span>10%</span>
+		footer(class="page-container__footer")
+			section(class="extra-info")
+				div(class="extra-info__item factoid")
+					label(class="factoid__label") Ветер
+					div(class="factoid__value"): <span>5</span> м/c, западный
+				div(class="extra-info__item factoid")
+					label(class="factoid__label") Давление
+					div(class="factoid__value"): <span>752</span> мм рт. ст.
+				div(class="extra-info__item factoid")
+					label(class="factoid__label") Влажность
+					div(class="factoid__value"): <span>60%</span>
+				div(class="extra-info__item factoid")
+					label(class="factoid__label") Вероятность дождя
+					div(class="factoid__value"): <span>10%</span>

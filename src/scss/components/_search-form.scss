@@ -1,75 +1,74 @@
 .search-form {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    width: 580px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	width: 580px;
+	box-shadow: 0 2px 8px rgba($color-black, 0.15);
 
-    @media screen and (min-width: 768px) and (max-width: 979px) {
-        width: 450px;
-    }
+	&__input {
+		display: block;
+		border: none;
+		padding: 30px;
+		padding-right: 120px;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: 30px;
+		line-height: 1;
+		color: $color-black;
 
-    @media screen and (min-width: 480px) and (max-width: 767px) {
-        width: 300px;
-    }
+		@media screen and (min-width: 768px) and (max-width: 979px) {
+			padding: 20px;
+			font-size: 20px;
+		}
 
-    @media screen and (min-width: 1px) and (max-width: 479px) {
-        width: 200px;
-    }
+		@media screen and (min-width: 480px) and (max-width: 767px) {
+			padding: 20px;
+			font-size: 20px;
+		}
 
-    @media screen and (min-width: 1px) and (max-width: 375px) {
-        width: 160px;
-    }
+		@media screen and (min-width: 1px) and (max-width: 479px) {
+			padding: 15px 55px 15px 15px;
+			font-size: 18px;
+		}
+	}
 
-    &__input {
-        width: 100%;
-        display: block;
-        line-height: 1;
-        padding: 30px;
-        padding-right: 120px;
-        box-sizing: border-box;
-        font-size: 30px;
-        color: #000000;
-        border: none;
+	&__button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		border: none;
+		padding: 0 35px;
+		font-size: 30px;
+		text-transform: uppercase;
+		color: #009bff;
+		background-color: transparent;
+		transition: 0.2s ease;
 
-        @media screen and (min-width: 768px) and (max-width: 979px) {
-            padding: 20px;
-            font-size: 20px;
-        }
+		&:hover,
+		&:focus {
+			background-color: rgba(249, 249, 249, 0.9);
+		}
 
-        @media screen and (min-width: 480px) and (max-width: 767px) {
-            padding: 20px;
-            font-size: 20px;
-        }
+		@media screen and (min-width: 1px) and (max-width: 479px) {
+			padding: 0 20px;
+			font-size: 18px;
+		}
+	}
 
-        @media screen and (min-width: 1px) and (max-width: 479px) {
-            font-size: 18px;
-            padding: 15px;
-            padding-right: 55px;
-        }
-    }
+	@media screen and (min-width: 768px) and (max-width: 979px) {
+		width: 450px;
+	}
 
-    &__button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        border: none;
-        background-color: transparent;
-        padding: 0 35px;
-        text-transform: uppercase;
-        font-size: 30px;
-        color: #009bff;
-        transition: 0.2s ease;
+	@media screen and (min-width: 480px) and (max-width: 767px) {
+		width: 300px;
+	}
 
-        @media screen and (min-width: 1px) and (max-width: 479px) {
-            font-size: 18px;
-            padding: 0 20px;
-        }
+	@media screen and (min-width: 1px) and (max-width: 479px) {
+		width: 200px;
+	}
 
-        &:hover,
-        &:focus {
-            background-color: rgba(249, 249, 249, 0.9);
-        }
-    }
+	@media screen and (min-width: 1px) and (max-width: 375px) {
+		width: 160px;
+	}
 }

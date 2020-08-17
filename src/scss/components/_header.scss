@@ -1,9 +1,9 @@
 .header {
-    position: relative;
+	position: relative;
 
-    &__unit-switcher {
-        position: absolute;
-        top: 0;
-        right: 0;
-    }
+	&__unit-switcher {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
 }

@@ -1,12 +1,12 @@
 @mixin triangle($direction, $width, $height, $color) {
 	$top-width: 0;
-	$top-color: rgba(0, 0, 0, 0);
+	$top-color: rgba($color-black, 0);
 	$right-width: 0;
-	$right-color: rgba(0, 0, 0, 0);
+	$right-color: rgba($color-black, 0);
 	$bottom-width: 0;
-	$bottom-color: rgba(0, 0, 0, 0);
+	$bottom-color: rgba($color-black, 0);
 	$left-width: 0;
-	$left-color: rgba(0, 0, 0, 0);
+	$left-color: rgba($color-black, 0);
 
 	@if $direction == (to top) {
 		$left-width: $width / 2;

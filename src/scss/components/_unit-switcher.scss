@@ -1,42 +1,42 @@
 .unit-switcher {
-    &::before {
-        content: 'º';
-        position: absolute;
-        top: 10px;
-        left: -10px;
-        transform: translateX(-100%);
-        opacity: 0.4;
-        font-size: 18px;
-        line-height: 1;
-    }
+	&::before {
+		content: "º";
+		position: absolute;
+		left: -10px;
+		top: 10px;
+		font-size: 18px;
+		line-height: 1;
+		opacity: 0.4;
+		transform: translateX(-100%);
+	}
 
-    &__inner {
-        display: flex;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        border-radius: 8px;
-        overflow: hidden;
-    }
+	&__inner {
+		display: flex;
+		overflow: hidden;
+		border: 1px solid rgba($color-white, 0.4);
+		border-radius: 8px;
+	}
 
-    &__radio:focus + &__item,
-    &__radio:checked + &__item {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        font-weight: 700;
-        cursor: default;
-    }
+	&__item {
+		display: block;
+		padding: 7px 13px;
+		box-sizing: border-box;
+		font-size: 18px;
+		line-height: 1;
+		color: rgba($color-white, 0.4);
+		transition: 0.2s ease;
+		cursor: pointer;
 
-    &__item {
-        display: block;
-        line-height: 1;
-        padding: 7px 13px;
-        box-sizing: border-box;
-        cursor: pointer;
-        color: rgba(255, 255, 255, 0.4);
-        transition: 0.2s ease;
-        font-size: 18px;
-        
-        &:hover {
-            color: #ffffff;
-        }
-    }
+		&:hover {
+			color: $color-white;
+		}
+	}
+
+	&__radio:focus + &__item,
+	&__radio:checked + &__item {
+		font-weight: 700;
+		color: $color-white;
+		background-color: rgba($color-white, 0.2);
+		cursor: default;
+	}
 }
