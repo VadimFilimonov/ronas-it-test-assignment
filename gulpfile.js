@@ -1,10 +1,11 @@
-let gulp = require('gulp');
-let gulpLoadPlugins = require('gulp-load-plugins');
-let yargs = require('yargs');
-let path = require('path');
-let webpackConfig = require('./webpack.config');
+const gulp = require('gulp');
+const gulpLoadPlugins = require('gulp-load-plugins');
+const yargs = require('yargs');
+const path = require('path');
+const webpackConfig = require('./webpack.config');
 
 let emittyPug;
+
 let errorHandler;
 
 let argv = yargs.default({
@@ -125,53 +126,6 @@ gulp.task('images', () => {
 	return gulp.src('src/images/**/*.*')
 		.pipe($.if(argv.cache, $.newer('build/images')))
 		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('build/images'));
-});
-
-gulp.task('sprites:png', () => {
-	const spritesData = gulp.src('src/images/sprites/png/*.png')
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.spritesmith({
-			cssName: '_sprites.scss',
-			cssTemplate: 'src/scss/_sprites.hbs',
-			imgName: 'sprites.png',
-			retinaImgName: 'sprites@2x.png',
-			retinaSrcFilter: 'src/images/sprites/png/*@2x.png',
-			padding: 2,
-		}));
-
-	return $.mergeStream(
-		spritesData.img
-			.pipe($.plumber({
-				errorHandler,
-			}))
-			.pipe($.vinylBuffer())
-			.pipe($.imagemin())
-			.pipe(gulp.dest('build/images')),
-		spritesData.css
-			.pipe(gulp.dest('src/scss'))
-	);
-});
-
-gulp.task('sprites:svg', () => {
-	return gulp.src('src/images/sprites/svg/*.svg')
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.svgmin(svgoConfig()))
-		.pipe($.svgstore())
-		.pipe($.if(!argv.minifySvg, $.replace(/^\t+$/gm, '')))
-		.pipe($.if(!argv.minifySvg, $.replace(/\n{2,}/g, '\n')))
-		.pipe($.if(!argv.minifySvg, $.replace('?><!', '?>\n<!')))
-		.pipe($.if(!argv.minifySvg, $.replace('><svg', '>\n<svg')))
-		.pipe($.if(!argv.minifySvg, $.replace('><defs', '>\n\t<defs')))
-		.pipe($.if(!argv.minifySvg, $.replace('><symbol', '>\n<symbol')))
-		.pipe($.if(!argv.minifySvg, $.replace('></svg', '>\n</svg')))
-		.pipe($.rename('sprites.svg'))
 		.pipe(gulp.dest('build/images'));
 });
 
@@ -346,13 +300,6 @@ gulp.task('watch', () => {
 	gulp.watch('src/images/**/*.*', gulp.series('images'));
 
 	gulp.watch([
-		'src/images/sprites/png/*.png',
-		'src/scss/_sprites.hbs',
-	], gulp.series('sprites:png'));
-
-	gulp.watch('src/images/sprites/svg/*.svg', gulp.series('sprites:svg'));
-
-	gulp.watch([
 		'src/*.pug',
 		'src/pug/**/*.pug',
 	], {
@@ -394,41 +341,6 @@ gulp.task('serve', () => {
 		});
 });
 
-gulp.task('zip', () => {
-	// eslint-disable-next-line global-require
-	let name = require('./package').name;
-	let now = new Date();
-	let year = now.getFullYear().toString().padStart(2, '0');
-	let month = (now.getMonth() + 1).toString().padStart(2, '0');
-	let day = now.getDate().toString().padStart(2, '0');
-	let hours = now.getHours().toString().padStart(2, '0');
-	let minutes = now.getMinutes().toString().padStart(2, '0');
-
-	return gulp.src([
-		'build/**',
-		'src/**',
-		'.babelrc',
-		'.editorconfig',
-		'.eslintignore',
-		'.eslintrc',
-		'.gitignore',
-		'.npmrc',
-		'.stylelintignore',
-		'.stylelintrc',
-		'*.js',
-		'*.json',
-		'*.md',
-		'*.yml',
-		'!package-lock.json',
-		'!zip/**',
-	], {
-		base: '.',
-		dot: true,
-	})
-		.pipe($.zip(`${name}_${year}-${month}-${day}_${hours}-${minutes}.zip`))
-		.pipe(gulp.dest('zip'));
-});
-
 gulp.task('lint', gulp.series(
 	'lint:pug',
 	'lint:scss',
@@ -438,8 +350,6 @@ gulp.task('lint', gulp.series(
 gulp.task('build', gulp.parallel(
 	'copy',
 	'images',
-	'sprites:png',
-	'sprites:svg',
 	'pug',
 	'scss',
 	'js'

@@ -1,25 +1,22 @@
-var unitSwitcherRadios = document.querySelectorAll('.unit-switcher__radio');
-var currentTemperature = document.querySelector('.main-info__value span');
+const unitSwitcherRadios = document.querySelectorAll('.unit-switcher__radio');
+const currentTemperature = document.querySelector('.main-info__value span');
 
-var unitSwitcherClick = function (unitSwitcher) {
-	unitSwitcher.addEventListener('input', function () {
-		var temperature = currentTemperature.textContent;
+const fromCelsiusToFahrenheit = (number) => number * 9 / 5 + 32;
+
+const fromFahrenheitToCelsius = (number) => (number - 32) * 5 / 9;
+
+const unitSwitcherClick = (unitSwitcher) => {
+	unitSwitcher.addEventListener('input', () => {
+		const temperature = currentTemperature.textContent;
+
 		if (unitSwitcher.id === 'unit-switcher-celsius') {
-			currentTemperature.textContent = Math.round(fromFahrenheitToCelsius(temperature));
+			currentTemperature.textContent = Math.round(fromFahrenheitToCelsius(temperature)).toString();
 		} else {
-			currentTemperature.textContent = Math.round(fromCelsiusToFahrenheit(temperature));
+			currentTemperature.textContent = Math.round(fromCelsiusToFahrenheit(temperature)).toString();
 		}
 	});
 }
 
-for (var i = 0; i < unitSwitcherRadios.length; i++) {
-	unitSwitcherClick(unitSwitcherRadios[i]);
-}
-
-var fromCelsiusToFahrenheit = function (number) {
-	return (number * 9 / 5) + 32;
-}
-
-var fromFahrenheitToCelsius = function (number) {
-	return (number - 32) * 5 / 9;
+for (let index = 0; index < unitSwitcherRadios.length; index += 1) {
+	unitSwitcherClick(unitSwitcherRadios[index]);
 }

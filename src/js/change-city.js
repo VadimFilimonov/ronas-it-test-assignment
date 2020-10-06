@@ -1,27 +1,26 @@
-var changeCityButton = document.querySelector('.current-city__parameter--change-city');
-var myLocationButton = document.querySelector('.current-city__parameter--my-location');
-var currentCityBlock = document.querySelector('.current-city');
-var currentCityTitle = document.querySelector('.current-city__title');
-var searchFormBlock = document.querySelector('.search-form');
-var searchFormInput = document.querySelector('.search-form__input');
-var searchFormButton = document.querySelector('.search-form__button');
+const changeCityButton = document.querySelector('.current-city__parameter--change-city');
+const myLocationButton = document.querySelector('.current-city__parameter--my-location');
+const currentCityBlock = document.querySelector('.current-city');
+const currentCityTitle = document.querySelector('.current-city__title');
+const searchForm = document.querySelector('.search-form');
+const searchFormInput = document.querySelector('.search-form__input');
 
-
-changeCityButton.addEventListener('click', function (evt) {
+changeCityButton.addEventListener('click', (event) => {
+	event.preventDefault();
 	currentCityBlock.classList.add('visually-hidden');
-	searchFormBlock.classList.remove('visually-hidden');
-	evt.preventDefault();
+	searchForm.classList.remove('visually-hidden');
 });
 
-myLocationButton.addEventListener('click', function (evt) {
-	evt.preventDefault();
+myLocationButton.addEventListener('click', (event) => {
+	event.preventDefault();
 });
 
-searchFormBlock.addEventListener('submit', function (evt) {
-	var city = searchFormInput.value;
+searchForm.addEventListener('submit', (event) => {
+	const city = searchFormInput.value;
+
 	searchFormInput.value = '';
 	currentCityTitle.textContent = city;
 	currentCityBlock.classList.remove('visually-hidden');
-	searchFormBlock.classList.add('visually-hidden');
-	evt.preventDefault();
+	searchForm.classList.add('visually-hidden');
+	event.preventDefault();
 });
