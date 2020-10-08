@@ -1,3 +1,6 @@
 import './vendor';
-import './change-city';
-import './change-unit';
+import changeCity from './change-city';
+import changeUnit from './change-unit';
+
+changeUnit();
+changeCity();
