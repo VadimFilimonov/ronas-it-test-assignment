@@ -37,8 +37,6 @@
 		"gulp-replace": "1.0.0",
 		"gulp-sass": "4.0.2",
 		"gulp-sourcemaps": "2.6.4",
-		"gulp-svgmin": "2.1.0",
-		"gulp-svgstore": "7.0.0",
 		"imagemin-mozjpeg": "8.0.0",
 		"merge-stream": "1.0.1",
 		"postcss-reporter": "6.0.0",

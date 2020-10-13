@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const yargs = require('yargs');
-const path = require('path');
 const webpackConfig = require('./webpack.config');
 
 let emittyPug;
@@ -76,36 +75,6 @@ if (argv.throwErrors) {
 	errorHandler = $.notify.onError('<%= error.message %>');
 } else {
 	errorHandler = null;
-}
-
-function svgoConfig(minify = argv.minifySvg) {
-	return (file) => {
-		let filename = path.basename(file.relative, path.extname(file.relative));
-
-		return {
-			js2svg: {
-				pretty: !minify,
-				indent: '\t',
-			},
-			plugins: [
-				{
-					cleanupIDs: {
-						minify: true,
-						prefix: `${filename}-`,
-					},
-				},
-				{
-					removeTitle: true,
-				},
-				{
-					removeViewBox: false,
-				},
-				{
-					sortAttrs: true,
-				},
-			],
-		};
-	};
 }
 
 gulp.task('copy', () => {
@@ -256,39 +225,6 @@ gulp.task('lint:js', () => {
 		}))
 		.pipe($.eslint.format())
 		.pipe($.if((file) => file.eslint && file.eslint.fixed, gulp.dest('.')));
-});
-
-gulp.task('optimize:images', () => {
-	return gulp.src('src/images/**/*.*')
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.imagemin([
-			$.imagemin.gifsicle({
-				interlaced: true,
-			}),
-			$.imagemin.optipng({
-				optimizationLevel: 3,
-			}),
-			$.imageminMozjpeg({
-				progressive: true,
-				quality: 80,
-			}),
-		]))
-		.pipe(gulp.dest('src/images'));
-});
-
-gulp.task('optimize:svg', () => {
-	return gulp.src('src/images/**/*.svg', {
-		base: 'src/images',
-	})
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe($.svgmin(svgoConfig(false)))
-		.pipe(gulp.dest('src/images'));
 });
 
 gulp.task('watch', () => {
