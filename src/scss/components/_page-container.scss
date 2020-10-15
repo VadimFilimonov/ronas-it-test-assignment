@@ -1,35 +1,35 @@
 .page-container {
 	min-height: 100vh;
 	background-color: #498cec;
+}
 
-	&__inner {
-		margin-right: auto;
-		margin-left: auto;
-		padding: 80px 75px 115px 100px;
-		box-sizing: border-box;
+.page-container__inner {
+	margin-right: auto;
+	margin-left: auto;
+	padding: 80px 75px 115px 100px;
+	box-sizing: border-box;
 
-		@media screen and (min-width: 480px) and (max-width: 767px) {
-			padding: 25px 35px 40px 20px;
-		}
-
-		@media screen and (min-width: 1px) and (max-width: 479px) {
-			padding: 25px 35px 40px 20px;
-		}
+	@media screen and (min-width: 480px) and (max-width: 767px) {
+		padding: 25px 35px 40px 20px;
 	}
 
-	&__header {
-		margin-bottom: 160px;
-
-		@media screen and (min-width: 1px) and (max-width: 479px) {
-			margin-bottom: 120px;
-		}
+	@media screen and (max-width: 479px) {
+		padding: 25px 35px 40px 20px;
 	}
+}
 
-	&__main {
-		margin-bottom: 300px;
+.page-container__header {
+	margin-bottom: 160px;
 
-		@media screen and (min-width: 1px) and (max-width: 479px) {
-			margin-bottom: 140px;
-		}
+	@media screen and (max-width: 479px) {
+		margin-bottom: 120px;
+	}
+}
+
+.page-container__main {
+	margin-bottom: 300px;
+
+	@media screen and (max-width: 479px) {
+		margin-bottom: 140px;
 	}
 }

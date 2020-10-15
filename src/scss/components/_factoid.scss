@@ -1,27 +1,25 @@
-.factoid {
-	&__label {
-		display: block;
-		margin-bottom: 15px;
+.factoid span {
+	font-weight: 700;
+}
+
+.factoid__label {
+	display: block;
+	margin-bottom: 15px;
+	font-size: 18px;
+	line-height: 1;
+	opacity: 0.6;
+
+	@media screen and (max-width: 479px) {
+		margin-bottom: 5px;
+		font-size: 15px;
+	}
+}
+
+.factoid__value {
+	font-size: 25px;
+	line-height: 1;
+
+	@media screen and (max-width: 479px) {
 		font-size: 18px;
-		line-height: 1;
-		opacity: 0.6;
-
-		@media screen and (min-width: 1px) and (max-width: 479px) {
-			margin-bottom: 5px;
-			font-size: 15px;
-		}
-	}
-
-	&__value {
-		font-size: 25px;
-		line-height: 1;
-
-		@media screen and (min-width: 1px) and (max-width: 479px) {
-			font-size: 18px;
-		}
-	}
-
-	span {
-		font-weight: 700;
 	}
 }

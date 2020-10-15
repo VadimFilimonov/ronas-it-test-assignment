@@ -1,42 +1,40 @@
-.current-city {
-	&__title {
-		overflow: hidden;
-		margin-bottom: 10px;
-		max-width: 65%;
-		font-size: 32px;
-		line-height: 1;
-		text-overflow: ellipsis;
+.current-city__title {
+	overflow: hidden;
+	margin-bottom: 10px;
+	max-width: 65%;
+	font-size: 32px;
+	line-height: 1;
+	text-overflow: ellipsis;
+}
+
+.current-city__parameter {
+	display: inline-block;
+	margin-right: 50px;
+	font-size: 15px;
+	text-decoration: none;
+	color: rgba($color-white, 0.4);
+
+	&:last-child {
+		margin-right: 0;
 	}
+}
 
-	&__parameter {
-		display: inline-block;
-		margin-right: 50px;
-		font-size: 15px;
-		text-decoration: none;
-		color: rgba($color-white, 0.4);
+.current-city__parameter--my-location {
+	position: relative;
+	padding-left: 25px;
+	box-sizing: border-box;
 
-		&:last-child {
-			margin-right: 0;
-		}
-
-		&--my-location {
-			position: relative;
-			padding-left: 25px;
-			box-sizing: border-box;
-
-			&::before {
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 0;
-				display: block;
-				mask-image: url("/images/icons/telegram.svg");
-				mask-position: center;
-				mask-size: contain;
-				width: 14px;
-				height: 16px;
-				background-color: rgba($color-white, 0.4);
-			}
-		}
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: block;
+		mask-image: url("/images/icons/telegram.svg");
+		mask-position: center;
+		mask-size: contain;
+		width: 14px;
+		height: 16px;
+		background-color: rgba($color-white, 0.4);
 	}
 }
