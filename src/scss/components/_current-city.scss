@@ -12,7 +12,7 @@
 	margin-right: 50px;
 	font-size: 15px;
 	text-decoration: none;
-	color: rgba($color-white, 0.4);
+	color: rgba(#fff, 0.4);
 
 	&:last-child {
 		margin-right: 0;
@@ -22,7 +22,6 @@
 .current-city__parameter--my-location {
 	position: relative;
 	padding-left: 25px;
-	box-sizing: border-box;
 
 	&::before {
 		content: "";
@@ -30,11 +29,11 @@
 		left: 0;
 		top: 0;
 		display: block;
-		mask-image: url("/images/icons/telegram.svg");
+		mask-image: url("/images/telegram.svg");
 		mask-position: center;
 		mask-size: contain;
 		width: 14px;
 		height: 16px;
-		background-color: rgba($color-white, 0.4);
+		background-color: rgba(#fff, 0.4);
 	}
 }

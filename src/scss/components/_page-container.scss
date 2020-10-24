@@ -1,13 +1,7 @@
 .page-container {
+	padding: 80px 75px 115px 100px;
 	min-height: 100vh;
 	background-color: #498cec;
-}
-
-.page-container__inner {
-	margin-right: auto;
-	margin-left: auto;
-	padding: 80px 75px 115px 100px;
-	box-sizing: border-box;
 
 	@media screen and (min-width: 480px) and (max-width: 767px) {
 		padding: 25px 35px 40px 20px;

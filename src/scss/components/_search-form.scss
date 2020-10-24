@@ -3,7 +3,7 @@
 	overflow: hidden;
 	border-radius: 8px;
 	width: 580px;
-	box-shadow: 0 2px 8px rgba($color-black, 0.15);
+	box-shadow: 0 2px 8px rgba(#000, 0.15);
 
 	@media screen and (min-width: 768px) and (max-width: 979px) {
 		width: 450px;
@@ -28,10 +28,9 @@
 	padding: 30px;
 	padding-right: 120px;
 	width: 100%;
-	box-sizing: border-box;
 	font-size: 30px;
 	line-height: 1;
-	color: $color-black;
+	color: #000;
 
 	@media screen and (min-width: 768px) and (max-width: 979px) {
 		padding: 20px;
