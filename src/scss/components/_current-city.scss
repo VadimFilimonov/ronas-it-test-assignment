@@ -10,9 +10,12 @@
 .current-city__parameter {
 	display: inline-block;
 	margin-right: 50px;
+	border: 0;
+	padding: 0;
 	font-size: 15px;
 	text-decoration: none;
 	color: rgba(#fff, 0.4);
+	background: none;
 
 	&:last-child {
 		margin-right: 0;

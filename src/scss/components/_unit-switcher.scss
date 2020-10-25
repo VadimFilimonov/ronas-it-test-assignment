@@ -1,4 +1,9 @@
 .unit-switcher {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: flex;
+
 	&::before {
 		content: "º";
 		position: absolute;
@@ -11,21 +16,26 @@
 	}
 }
 
-.unit-switcher__inner {
-	display: flex;
-	overflow: hidden;
-	border: 1px solid rgba(#fff, 0.4);
-	border-radius: 8px;
-}
-
 .unit-switcher__item {
-	display: block;
+	border: 1px solid rgba(#fff, 0.4);
 	padding: 7px 13px;
 	font-size: 18px;
 	line-height: 1;
 	color: rgba(#fff, 0.4);
 	transition: 0.2s ease;
 	cursor: pointer;
+
+	&:first-of-type {
+		border-right: 0;
+		border-top-left-radius: 8px;
+		border-bottom-left-radius: 8px;
+	}
+
+	&:last-of-type {
+		border-left: 0;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+	}
 
 	&:hover {
 		color: #fff;
