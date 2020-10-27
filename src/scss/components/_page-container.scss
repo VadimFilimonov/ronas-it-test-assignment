@@ -3,11 +3,7 @@
 	min-height: 100vh;
 	background-color: #498cec;
 
-	@media screen and (min-width: 480px) and (max-width: 767px) {
-		padding: 25px 35px 40px 20px;
-	}
-
-	@media screen and (max-width: 479px) {
+	@media screen and (max-width: 767px) {
 		padding: 25px 35px 40px 20px;
 	}
 }
@@ -18,13 +14,5 @@
 
 	@media screen and (max-width: 479px) {
 		margin-bottom: 120px;
-	}
-}
-
-.page-container__main {
-	margin-bottom: 300px;
-
-	@media screen and (max-width: 479px) {
-		margin-bottom: 140px;
 	}
 }

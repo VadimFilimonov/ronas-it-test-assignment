@@ -15,13 +15,12 @@ header(class="page-container__header")
 		type="radio", name="unit-switcher", id="fahrenheit")
 		label(class="unit-switcher__item unit-switcher__item--fahrenheit" for="fahrenheit") F
 
-main(class="page-container__main main-info")
-	div(class="main-info__content")
-		img(class="main-info__image" src="./images/image-default.png")
-		div(class="main-info__value")
-			span 19
-			sup º
-	div(class="main-info__description") Преимущественно солнечно
+main(class="main-info")
+	img(class="main-info__image" src="./images/image-default.png")
+	div(class="main-info__value")
+		span 19
+		sup º
+	p(class="main-info__description") Преимущественно солнечно
 
 footer(class="extra-info")
 	div(class="extra-info__item factoid")
