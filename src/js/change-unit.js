@@ -2,9 +2,9 @@ let unitSwitcherRadios;
 
 let temperatureHolder;
 
-const toFahrenheit = (number) => number * 9 / 5 + 32;
+const convertToFahrenheit = (number) => number * 9 / 5 + 32;
 
-const toCelsius = (number) => (number - 32) * 5 / 9;
+const convertToCelsius = (number) => (number - 32) * 5 / 9;
 
 const findElements = () => {
 	unitSwitcherRadios = document.querySelectorAll('.unit-switcher__radio');
@@ -16,8 +16,8 @@ const onInput = ({target}) => {
 
 	let newTemperature =
 		target.id === 'celsius'
-			? Math.round(toCelsius(currentTemperature))
-			: Math.round(toFahrenheit(currentTemperature));
+			? Math.round(convertToCelsius(currentTemperature))
+			: Math.round(convertToFahrenheit(currentTemperature));
 
 	temperatureHolder.textContent = newTemperature;
 };

@@ -19,7 +19,7 @@ const findElements = () => {
 	searchFormInput = document.querySelector('.search-form__input');
 };
 
-const onCityButtonClcik = (event) => {
+const onCityButtonClick = (event) => {
 	event.preventDefault();
 	currentCityBlock.classList.add('visually-hidden');
 	searchForm.classList.remove('visually-hidden');
@@ -36,7 +36,7 @@ const onSubmit = (event) => {
 };
 
 const subscribe = () => {
-	changeCityButton.addEventListener('click', onCityButtonClcik);
+	changeCityButton.addEventListener('click', onCityButtonClick);
 	myLocationButton.addEventListener('click', (event) => event.preventDefault());
 	searchForm.addEventListener('submit', onSubmit);
 };
