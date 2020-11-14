@@ -1,48 +1,42 @@
-doctype html
-html
-	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-		meta(name="viewport" content="width=device-width")
-		link(rel="stylesheet" href="./css/main.css")
-		link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap")
-	body(class="page-container")
-		header(class="page-container__header")
-			div(class="current-city")
-				div(class="current-city__title") Омск
-				button(class="current-city__parameter current-city__parameter--change-city" href="#") Сменить город
-				button(class="current-city__parameter current-city__parameter--my-location" href="#") Мое местоположение
-			form(class="search-form visually-hidden")
-				input(class="search-form__input" type="text" placeholder="Ваш город", required)
-				button(class="search-form__button") OK
+<!DOCTYPE html>
+<html>
 
-			form(class="unit-switcher")
-				input(class="unit-switcher__radio visually-hidden",
-					type="radio", name="unit-switcher", id="celsius", checked)
-				label(class="unit-switcher__item unit-switcher__item--celsius" for="celsius") C
-				input(class="unit-switcher__radio visually-hidden",
-				type="radio", name="unit-switcher", id="fahrenheit")
-				label(class="unit-switcher__item unit-switcher__item--fahrenheit" for="fahrenheit") F
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&amp;display=swap">
+</head>
 
-		main(class="main-info")
-			img(class="main-info__image" src="./images/image-default.png")
-			div(class="main-info__value")
-				span 19
-				sup º
-			p(class="main-info__description") Преимущественно солнечно
+<body class="page-container">
+	<header class="page-container__header">
+		<div class="current-city">
+			<div class="current-city__title">Омск</div><button class="current-city__parameter current-city__parameter--change-city" href="#">Сменить город</button><button class="current-city__parameter current-city__parameter--my-location" href="#">Мое местоположение</button></div>
+		<form
+			class="search-form visually-hidden"><input class="search-form__input" type="text" placeholder="Ваш город" required><button class="search-form__button">OK</button></form>
+			<form class="unit-switcher"><input class="unit-switcher__radio visually-hidden" type="radio" name="unit-switcher" id="celsius" checked><label class="unit-switcher__item unit-switcher__item--celsius" for="celsius">C</label><input class="unit-switcher__radio visually-hidden"
+				type="radio" name="unit-switcher" id="fahrenheit"><label class="unit-switcher__item unit-switcher__item--fahrenheit" for="fahrenheit">F</label></form>
+	</header>
+	<main class="main-info"><img class="main-info__image" src="./images/image-default.png">
+		<div class="main-info__value"><span>19</span><sup>º</sup></div>
+		<p class="main-info__description">Преимущественно солнечно</p>
+	</main>
+	<footer class="footer">
+		<div class="factoid"><label class="factoid__label">Ветер</label>
+			<div class="factoid__value"><span>5</span> м/c, западный</div>
+		</div>
+		<div class="factoid"><label class="factoid__label">Давление</label>
+			<div class="factoid__value"><span>752</span> мм рт. ст.</div>
+		</div>
+		<div class="factoid"><label class="factoid__label">Влажность</label>
+			<div class="factoid__value"><span>60%</span></div>
+		</div>
+		<div class="factoid"><label class="factoid__label">Вероятность дождя</label>
+			<div class="factoid__value"><span>10%</span></div>
+		</div>
+	</footer>
+	<script src="./js/main.js"></script>
+</body>
 
-		footer(class="footer")
-			div(class="factoid")
-				label(class="factoid__label") Ветер
-				div(class="factoid__value"): <span>5</span> м/c, западный
-			div(class="factoid")
-				label(class="factoid__label") Давление
-				div(class="factoid__value"): <span>752</span> мм рт. ст.
-			div(class="factoid")
-				label(class="factoid__label") Влажность
-				div(class="factoid__value"): <span>60%</span>
-			div(class="factoid")
-				label(class="factoid__label") Вероятность дождя
-				div(class="factoid__value"): <span>10%</span>
-
-		script(src="./js/main.js")
+</html>

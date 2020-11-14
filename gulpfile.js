@@ -3,8 +3,6 @@ const gulpLoadPlugins = require('gulp-load-plugins');
 const yargs = require('yargs');
 const webpackConfig = require('./webpack.config');
 
-let emittyPug;
-
 let errorHandler;
 
 let argv = yargs.default({
@@ -50,7 +48,6 @@ let $ = gulpLoadPlugins({
 		'browser-sync',
 		'connect-history-api-fallback',
 		'cssnano',
-		'emitty',
 		'imagemin-mozjpeg',
 		'merge-stream',
 		'postcss-reporter',
@@ -77,20 +74,6 @@ if (argv.throwErrors) {
 	errorHandler = null;
 }
 
-gulp.task('copy', () => {
-	return gulp.src([
-		'src/resources/**/*.*',
-		'src/resources/**/.*',
-		'!src/resources/**/.keep',
-	], {
-		base: 'src/resources',
-		dot: true,
-	})
-		.pipe($.if(argv.cache, $.newer('build')))
-		.pipe($.if(argv.debug, $.debug()))
-		.pipe(gulp.dest('build'));
-});
-
 gulp.task('images', () => {
 	return gulp.src('src/images/**/*.*')
 		.pipe($.if(argv.cache, $.newer('build/images')))
@@ -98,41 +81,11 @@ gulp.task('images', () => {
 		.pipe(gulp.dest('build/images'));
 });
 
-gulp.task('pug', () => {
-	if (!emittyPug) {
-		emittyPug = $.emitty.setup('src', 'pug', {
-			makeVinylFile: true,
-		});
-	}
-
-	if (!argv.cache) {
-		return gulp.src('src/*.pug')
-			.pipe($.plumber({
-				errorHandler,
-			}))
-			.pipe($.if(argv.debug, $.debug()))
-			.pipe($.pug({
-				pretty: argv.minifyHtml ? false : '\t',
-			}))
-			.pipe(gulp.dest('build'));
-	}
-
-	return new Promise((resolve, reject) => {
-		emittyPug.scan(global.emittyPugChangedFile).then(() => {
-			gulp.src('src/*.pug')
-				.pipe($.plumber({
-					errorHandler,
-				}))
-				.pipe(emittyPug.filter(global.emittyPugChangedFile))
-				.pipe($.if(argv.debug, $.debug()))
-				.pipe($.pug({
-					pretty: argv.minifyHtml ? false : '\t',
-				}))
-				.pipe(gulp.dest('build'))
-				.on('end', resolve)
-				.on('error', reject);
-		});
-	});
+gulp.task('html', () => {
+	return gulp.src([
+		'src/**/*.html',
+	])
+		.pipe(gulp.dest('build/'));
 });
 
 gulp.task('scss', () => {
@@ -178,18 +131,6 @@ gulp.task('js', () => {
 		.pipe(gulp.dest(webpackConfig.output.path));
 });
 
-gulp.task('lint:pug', () => {
-	return gulp.src([
-		'src/*.pug',
-		'src/pug/**/*.pug',
-	])
-		.pipe($.plumber({
-			errorHandler,
-		}))
-		.pipe($.pugLinter())
-		.pipe($.pugLinter.reporter(argv.throwErrors ? 'fail' : null));
-});
-
 gulp.task('lint:scss', () => {
 	return gulp.src([
 		'src/scss/**/*.scss',
@@ -228,29 +169,8 @@ gulp.task('lint:js', () => {
 });
 
 gulp.task('watch', () => {
-	gulp.watch([
-		'src/resources/**/*.*',
-		'src/resources/**/.*',
-	], gulp.series('copy'));
-
 	gulp.watch('src/images/**/*.*', gulp.series('images'));
-
-	gulp.watch([
-		'src/*.pug',
-		'src/pug/**/*.pug',
-	], {
-		delay: 0,
-	}, gulp.series('pug'))
-		.on('all', (event, file) => {
-			if (event === 'unlink') {
-				global.emittyPugChangedFile = undefined;
-			} else {
-				global.emittyPugChangedFile = file;
-			}
-		});
-
 	gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
-
 	gulp.watch('src/js/**/*.js', gulp.series('js'));
 });
 
@@ -278,15 +198,13 @@ gulp.task('serve', () => {
 });
 
 gulp.task('lint', gulp.series(
-	'lint:pug',
 	'lint:scss',
 	'lint:js'
 ));
 
 gulp.task('build', gulp.parallel(
-	'copy',
 	'images',
-	'pug',
+	'html',
 	'scss',
 	'js'
 ));
