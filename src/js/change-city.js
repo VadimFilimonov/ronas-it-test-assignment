@@ -29,7 +29,7 @@ const onSubmit = (event) => {
 	event.preventDefault();
 	const city = searchFormInput.value;
 
-	searchFormInput.value = '';
+	searchForm.reset();
 	currentCityTitle.textContent = city;
 	currentCityBlock.classList.remove('visually-hidden');
 	searchForm.classList.add('visually-hidden');
