@@ -2,6 +2,8 @@ let unitSwitcherRadios;
 
 let temperatureHolder;
 
+let temperatureValue;
+
 const convertToFahrenheit = (number) => number * 9 / 5 + 32;
 
 const convertToCelsius = (number) => (number - 32) * 5 / 9;
@@ -9,25 +11,22 @@ const convertToCelsius = (number) => (number - 32) * 5 / 9;
 const findElements = () => {
 	unitSwitcherRadios = document.querySelectorAll('.unit-switcher__radio');
 	temperatureHolder = document.querySelector('.main-info__value span');
+	temperatureValue = temperatureHolder.textContent;
 };
 
 const onInput = ({target}) => {
-	const currentTemperature = temperatureHolder.textContent;
-
-	let newTemperature =
+	temperatureValue =
 		target.id === 'celsius'
-			? Math.round(convertToCelsius(currentTemperature))
-			: Math.round(convertToFahrenheit(currentTemperature));
+			? Math.round(convertToCelsius(temperatureValue))
+			: Math.round(convertToFahrenheit(temperatureValue));
 
-	temperatureHolder.textContent = newTemperature;
-};
-
-const subscribeUnitSwitcher = (unitSwitcher) => {
-	unitSwitcher.addEventListener('input', onInput);
+	temperatureHolder.textContent = temperatureValue;
 };
 
 const subscribe = () => {
-	unitSwitcherRadios.forEach(subscribeUnitSwitcher);
+	unitSwitcherRadios.forEach((item) => {
+		item.addEventListener('input', onInput);
+	});
 };
 
 export default () => {
