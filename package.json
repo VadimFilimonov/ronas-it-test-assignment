@@ -1,9 +1,5 @@
 {
 	"name": "ronas-it-test-assignment",
-	"scripts": {
-		"start": "gulp",
-		"build": "gulp build"
-	},
 	"devDependencies": {
 		"@babel/core": "7.1.2",
 		"@babel/plugin-syntax-dynamic-import": "7.0.0",

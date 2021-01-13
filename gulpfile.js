@@ -5,7 +5,7 @@ const webpackConfig = require('./webpack.config');
 
 let errorHandler;
 
-let argv = yargs.default({
+const argv = yargs.default({
 	cache: true,
 	ci: false,
 	debug: true,
